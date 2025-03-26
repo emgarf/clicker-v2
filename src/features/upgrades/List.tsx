@@ -1,7 +1,7 @@
 import useUpgrades from './useUpgrades.ts';
 import Item from '../common/Item';
 
-export function UpgradesList() {
+export default function UpgradesList() {
 	const { upgrades, buyUpgrade, canAffordUpgrade } = useUpgrades();
 
 	return (

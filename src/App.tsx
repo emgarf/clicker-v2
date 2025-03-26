@@ -1,7 +1,7 @@
 import { GameProvider } from './context/Game';
-import { CakeArea } from './features/cake-area/CakeArea';
-import { UpgradesList } from './features/upgrades/List';
-import { AutomationsList } from './features/automations/List';
+import CakeArea from './features/cakearea/CakeArea';
+import UpgradesList from './features/upgrades/List';
+import AutomationsList from './features/automations/List';
 import logo from './cake_clicker.png';
 import './app.css';
 

@@ -1,9 +1,9 @@
-import useClickHandler from './useClickHandler';
+import useClickHandler from './useClickHandler.ts';
 import { useGame } from '../../context/Game';
 import { useState } from 'react';
-import './click-area.css';
+import './cakeArea.css';
 
-export function CakeArea() {
+export default function CakeArea() {
 	const { handleClick } = useClickHandler();
 	const [askii, setAskii] = useState(`|####|>o<|###|`);
 	const { state } = useGame();

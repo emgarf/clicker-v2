@@ -1,3 +1,4 @@
+import React from 'react';
 import { Upgrade, Automation } from '../../types/game';
 import './item.css';
 
@@ -11,16 +12,16 @@ function isUpgrade(item: Upgrade | Automation) {
 	if ('multiplier' in item) {
 		return <p>Multiplier: +{item.multiplier}</p>;
 	}
-	return <p>Income: {item.incomePerSecond.toFixed(2)} cakes/s</p>;
+	return <p>Income: {item.incomePerSecond.toFixed(0)} cakes/s</p>;
 }
 
-export default function Item({ item, onBuy, canAfford }: UpgradeItemProps) {
+export default React.memo(({ item, onBuy, canAfford }: UpgradeItemProps) => {
 	return (
-		<div className={`item ${canAfford ? 'visible' : 'hidden'}`}>
+		<div className={`item ${canAfford ? 'visible' : 'hidden grey'}`}>
 			<div className="item__infos">
 				<div>
-					<h3>{item.name}</h3>
-					<p>Price: {item.currentPrice.toFixed(2)} cakes</p>
+					<b>{item.name}</b>
+					<p>Price: {item.currentPrice.toFixed(0)} cakes</p>
 				</div>
 				<div>
 					{isUpgrade(item)}
@@ -32,4 +33,4 @@ export default function Item({ item, onBuy, canAfford }: UpgradeItemProps) {
 			</button>
 		</div>
 	);
-}
+});

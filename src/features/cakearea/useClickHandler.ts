@@ -1,12 +1,12 @@
-import { useCallback } from 'react';
+// import { useCallback } from 'react';
 import { useGame } from '../../context/Game';
 
 export default function useClickHandler() {
 	const { dispatch } = useGame();
 
-	const handleClick = useCallback(() => {
+	const handleClick = () => {
 		dispatch({ type: 'CLICK' });
-	}, [dispatch]);
+	};
 
 	return { handleClick };
 }

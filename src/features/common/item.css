@@ -6,6 +6,11 @@
 	border-radius: 5px;
 }
 
+.button:disabled {
+	background-color: grey;
+	color: purple;
+}
+
 .item__infos {
 	display: flex;
 	align-items: center;
@@ -22,21 +27,12 @@
 	text-align: right;
 }
 
-.item__infos h3 {
+.item__infos b {
 	margin: 0;
+	font-size: 0.9em;
 }
 
 .item__infos p {
 	margin: 0;
-}
-
-.button {
-	width: 100%;
-	border: 1px solid black;
-	background-color: #5a2e24;
-	color: #fff;
-	font-size: 1em;
-	padding: 0.5em;
-	margin-top: 0.5em;
-	border-radius: 5px;
+	font-size: 0.9em;
 }
