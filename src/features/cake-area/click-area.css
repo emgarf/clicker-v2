@@ -1,0 +1,47 @@
+.cake__askii {
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	width: 300px;
+	margin: 1em auto 0;
+	font-size: 2em;
+
+	-webkit-animation-duration: 2s;
+	animation-duration: 2s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	-webkit-animation-name: bounce;
+	animation-name: bounce;
+}
+
+.cake {
+	position: relative;
+	text-align: center;
+	will-change: transform;
+}
+
+.cake span {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+@media screen and (min-width: 680px) {
+	.cake__askii:hover {
+		animation: none;
+	}
+}
+
+@keyframes bounce {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.03);
+	}
+	100% {
+		transform: scale(1);
+	}
+}

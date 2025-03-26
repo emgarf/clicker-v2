@@ -1,0 +1,42 @@
+.item {
+	background-color: #fff;
+	padding: 1em;
+	border: 2px solid black;
+	margin-bottom: 1em;
+	border-radius: 5px;
+}
+
+.item__infos {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.item__infos > div {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.item__infos > div:last-child {
+	text-align: right;
+}
+
+.item__infos h3 {
+	margin: 0;
+}
+
+.item__infos p {
+	margin: 0;
+}
+
+.button {
+	width: 100%;
+	border: 1px solid black;
+	background-color: #5a2e24;
+	color: #fff;
+	font-size: 1em;
+	padding: 0.5em;
+	margin-top: 0.5em;
+	border-radius: 5px;
+}
