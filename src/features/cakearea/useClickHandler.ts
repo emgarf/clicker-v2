@@ -1,4 +1,3 @@
-// import { useCallback } from 'react';
 import { useGame } from '../../context/Game';
 
 export default function useClickHandler() {

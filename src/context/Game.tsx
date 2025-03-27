@@ -3,32 +3,27 @@ import { GameState } from '../types/game';
 import { initialUpgrades } from '../features/upgrades/data';
 import { initialAutomations } from '../features/automations/data';
 
-// Initial game state
 const initialState: GameState = {
 	cake: 0,
 	clickMultiplier: 1,
 	cakePerClick: 1,
 	cakePerSecond: 0,
-	totalClicks: 0,
 	upgrades: initialUpgrades,
 	automations: initialAutomations,
 };
 
-// Action types
 type GameAction =
 	| { type: 'CLICK' }
 	| { type: 'BUY_UPGRADE'; upgradeId: string }
 	| { type: 'BUY_AUTOMATION'; automationId: string }
 	| { type: 'TICK' };
 
-// Reducer function
 function gameReducer(state: GameState, action: GameAction): GameState {
 	switch (action.type) {
 		case 'CLICK':
 			return {
 				...state,
 				cake: state.cake + state.cakePerClick,
-				totalClicks: state.totalClicks + 1,
 			};
 
 		case 'BUY_UPGRADE': {
@@ -90,7 +85,7 @@ function gameReducer(state: GameState, action: GameAction): GameState {
 		case 'TICK':
 			return {
 				...state,
-				cake: state.cake + state.cakePerSecond / 10, // We update 10 times per second
+				cake: state.cake + state.cakePerSecond / 10,
 			};
 
 		default:
@@ -98,7 +93,6 @@ function gameReducer(state: GameState, action: GameAction): GameState {
 	}
 }
 
-// Create context
 interface GameContextType {
 	state: GameState;
 	dispatch: React.Dispatch<GameAction>;
@@ -106,7 +100,6 @@ interface GameContextType {
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
 
-// Provider component
 interface GameProviderProps {
 	children: ReactNode;
 }
@@ -114,19 +107,17 @@ interface GameProviderProps {
 export function GameProvider({ children }: GameProviderProps) {
 	const [state, dispatch] = useReducer(gameReducer, initialState);
 
-	// Game loop for automations (runs 10 times per second)
 	useEffect(() => {
-		const interval = setInterval(() => {
+		const tick = setInterval(() => {
 			dispatch({ type: 'TICK' });
 		}, 100);
 
-		return () => clearInterval(interval);
+		return () => clearInterval(tick);
 	}, []);
 
 	return <GameContext.Provider value={{ state, dispatch }}>{children}</GameContext.Provider>;
 }
 
-// Custom hook to use the game context
 export function useGame() {
 	const context = useContext(GameContext);
 	if (context === undefined) {

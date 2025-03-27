@@ -21,7 +21,6 @@ export default function useAutomations() {
 	);
 
 	return {
-		automations: Object.values(state.automations),
 		buyAutomation,
 		canAffordAutomation,
 	};

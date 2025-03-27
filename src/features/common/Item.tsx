@@ -17,7 +17,7 @@ function isUpgrade(item: Upgrade | Automation) {
 
 export default React.memo(({ item, onBuy, canAfford }: UpgradeItemProps) => {
 	return (
-		<div className={`item ${canAfford ? 'visible' : 'hidden grey'}`}>
+		<div className={`item ${canAfford ? 'visible' : 'hidden'}`}>
 			<div className="item__infos">
 				<div>
 					<b>{item.name}</b>

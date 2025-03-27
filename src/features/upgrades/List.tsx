@@ -1,14 +1,16 @@
 import useUpgrades from './useUpgrades.ts';
 import Item from '../common/Item';
+import { useGame } from '../../context/Game.tsx';
 
 export default function UpgradesList() {
-	const { upgrades, buyUpgrade, canAffordUpgrade } = useUpgrades();
+	const { state } = useGame();
+	const { buyUpgrade, canAffordUpgrade } = useUpgrades();
 
 	return (
 		<div>
 			<h2>Upgrades</h2>
 			<div>
-				{upgrades.map((upgrade, index) => (
+				{Object.values(state.upgrades).map((upgrade, index) => (
 					<Item
 						key={upgrade.id}
 						item={upgrade}

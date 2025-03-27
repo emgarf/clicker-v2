@@ -21,7 +21,6 @@ export default function useUpgrades() {
 	);
 
 	return {
-		upgrades: Object.values(state.upgrades),
 		buyUpgrade,
 		canAffordUpgrade,
 	};

@@ -38,7 +38,7 @@ export default function CakeArea() {
 			<p>
 				Money per click: <b>{state.cakePerClick.toFixed(2)}</b>
 			</p>
-			<p>click on the cake below</p>
+			<p>Click on the cake below</p>
 			| <br />
 			| <br />v
 			<div onClick={() => bakeCake()} className="cake__askii">

@@ -1,14 +1,17 @@
 import useAutomations from './useAutomations.ts';
 import Item from '../common/Item';
+import { useGame } from '../../context/Game.tsx';
 
 export default function AutomationsList() {
-	const { automations, buyAutomation, canAffordAutomation } = useAutomations();
+	const { state } = useGame();
+
+	const { buyAutomation, canAffordAutomation } = useAutomations();
 
 	return (
 		<div>
 			<h2>Automations</h2>
 			<div>
-				{automations.map((automation, index) => (
+				{Object.values(state.automations).map((automation, index) => (
 					<Item
 						key={automation.id}
 						item={automation}

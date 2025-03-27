@@ -23,7 +23,6 @@ export interface GameState {
 	clickMultiplier: number;
 	cakePerClick: number;
 	cakePerSecond: number;
-	totalClicks: number;
 	upgrades: Record<string, Upgrade>;
 	automations: Record<string, Automation>;
 }
